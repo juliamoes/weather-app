@@ -1,0 +1,70 @@
+body {
+  background-color: white;
+  margin: 300px;
+  position: relative;
+  top: -100px;
+}
+
+.color {
+  background-color: rgb(199, 228, 247);
+}
+.temp {
+  color: blue;
+  font-size: 50px;
+  font-weight: bold;
+}
+ul {
+  list-style: none;
+}
+.cold {
+  font-size: 50px;
+  color: blue;
+}
+.weather1 {
+  background-color: #83bef5;
+  padding: 15px;
+  margin-top: 70px;
+  position: relative;
+  right: -30px;
+  border: 3px solid #419ef6d0;
+  font-size: 15px;
+  width: 60px;
+  font-weight: bold;
+}
+.weather2 {
+  background-color: #83bef5;
+
+  border: 3px solid #419ef6d0;
+  padding: 15px;
+  margin-top: 15px;
+  position: relative;
+  right: -20px;
+  width: 60px;
+  font-weight: bold;
+}
+.space {
+  margin-bottom: 20px;
+}
+.paige {
+  padding: 20px;
+  border: 3px solid black;
+  background-image: url("https://www.gannett-cdn.com/-mm-/c472e2b2f354224323276626285c7d595262faba/c=0-210-3600-2244/local/-/media/2016/06/10/Cincinnati/Cincinnati/636011561949676545-770-3767632.JPG");
+}
+#button {
+  background-color: blue;
+  border-radius: 20px;
+  margin-bottom: 15px;
+  padding: 7px 20px;
+  color: white;
+  box-shadow: 10px 5px 5px grey;
+}
+#enter {
+  background-color: #83bef5;
+  border-radius: 20px;
+  width: 350px;
+  padding: 7px 100px;
+  box-shadow: 10px 5px 5px grey;
+}
+.sun {
+  font-size: 40px;
+}
