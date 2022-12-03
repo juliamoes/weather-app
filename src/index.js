@@ -3,11 +3,17 @@ function displayWeatherCondition(response) {
   document.querySelector("#hot").innerHTML = Math.round(
     response.data.main.temp
   );
+  document.querySelector("#description").innerHTML =
+    response.data.weather[0].description;
+  document.querySelector("#humidity").innerHTML = response.data.main.humidity;
+  document.querySelector("#wind").innerHTML = Math.round(
+    response.data.wind.speed
+  );
 }
 
 function city1(event) {
   event.preventDefault();
-  let apiKey = "4ceb52be1d2505a597cef32a455231ba";
+  let apiKey = "ca0db41e2e878c74a1dfc7ffece370d4";
   let city = document.querySelector("#enter-input").value;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayWeatherCondition);
