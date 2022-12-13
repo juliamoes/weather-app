@@ -1,4 +1,5 @@
 function displayWeatherCondition(response) {
+  let iconElement = document.querySelector("#icon");
   document.querySelector("#temp1").innerHTML = response.data.name;
   document.querySelector("#hot").innerHTML = Math.round(
     response.data.main.temp
@@ -8,6 +9,13 @@ function displayWeatherCondition(response) {
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed
+  );
+  celsiusTemperature = response.data.main.temp;
+  let dateElement = document.querySelector("#date");
+  dateElement.innerHTML = formatDate(response.data.dt * 10000);
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
 }
 
@@ -22,17 +30,17 @@ function city1(event) {
 let cityForm = document.querySelector("#enter");
 cityForm.addEventListener("submit", city1);
 
-function todayIs(date) {
-  let hour = date.getHours();
-  if (hour < 10) {
-    hour = `0${hour}`;
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
   }
-  let minute = date.getMinutes();
-  if (minute < 10) {
-    minute = `0${minute}`;
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
   }
-  let day = date.getDay();
-  let dayWeek = [
+  let days = [
     "Sunday",
     "Monday",
     "Tuesday",
@@ -41,14 +49,27 @@ function todayIs(date) {
     "Friday",
     "Saturday",
   ];
-  let days = dayWeek[day];
-
-  return `${days} ${hour}:${minute}`;
+  let day = days[date.getDay()];
+  return `${day} ${hours}:${minutes}`;
 }
+function showFahrenheit(event) {
+  event.preventDefault();
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
 
-let now = new Date();
-let currentTime = document.querySelector("#time");
-currentTime.innerHTML = todayIs(now);
+  let temperatureElement = document.querySelector("#hot");
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
+function showCelsius(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#hot");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+let fahrenheitLink = document.querySelector("#fahrenheit");
+fahrenheitLink.addEventListener("click", showFahrenheit);
 
-let apiUrl =
-  "`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`";
+let celsiusLink = document.querySelector("#celsius");
+celsiusLink.addEventListener("click", showCelsius);
+
+let celsiusTemperature = null;
+
+search("New York");
