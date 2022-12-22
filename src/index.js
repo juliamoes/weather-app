@@ -75,4 +75,26 @@ celsiusLink.addEventListener("click", showCelsius);
 
 let celsiusTemperature = null;
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Thu", "Fri", "Sat"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+    <div class="col">
+      <ul class="weather1">
+        <li class="space">${day}</li>
+        <li class="space sun">🌤</li>
+        <li>12°C</li>
+      </ul>
+    </div>
+  </div>`;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+displayForecast();
+
 search("New York");

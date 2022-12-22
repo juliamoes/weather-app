@@ -31,17 +31,7 @@ ul {
   width: 60px;
   font-weight: bold;
 }
-.weather2 {
-  background-color: #83bef5;
 
-  border: 3px solid #419ef6d0;
-  padding: 15px;
-  margin-top: 15px;
-  position: relative;
-  right: -20px;
-  width: 60px;
-  font-weight: bold;
-}
 .space {
   margin-bottom: 20px;
 }
