@@ -45,7 +45,7 @@ function displayForecast(response) {
         
         <img src="http://openweathermap.org/img/wn/${
           forecastDay.weather[0].icon
-        }@2x.png"/>
+        }@2x.png" width=50px/>
         <div>${Math.round(forecastDay.temp.max)}°C</div>
       </div>
     
@@ -58,7 +58,7 @@ function displayForecast(response) {
 
 function getForecast(coordinates) {
   let apiKey = "ca0db41e2e878c74a1dfc7ffece370d4";
-  let apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayForecast);
 }
 
@@ -99,4 +99,4 @@ function city1(event) {
 let cityForm = document.querySelector("#enter");
 cityForm.addEventListener("submit", city1);
 
-search("New York");
+search("Warsaw");

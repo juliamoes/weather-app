@@ -20,6 +20,7 @@ ul {
   font-size: 50px;
   color: blue;
 }
+
 .weather1 {
   background-color: #83bef5;
   padding: 15px;
@@ -28,7 +29,7 @@ ul {
   right: -30px;
   border: 3px solid #419ef6d0;
   font-size: 15px;
-  width: 60px;
+  width: 70px;
   font-weight: bold;
 }
 
